@@ -7,12 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		798D75FC20CD8BD80082274A /* Sox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798D75FB20CD8BD80082274A /* Sox.swift */; };
+		798D760320CD90210082274A /* sox in Resources */ = {isa = PBXBuildFile; fileRef = 798D760220CD90210082274A /* sox */; };
 		79A72D2220C6949900260B30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A72D2120C6949900260B30 /* AppDelegate.swift */; };
 		79A72D2420C6949900260B30 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A72D2320C6949900260B30 /* ViewController.swift */; };
 		79A72D2620C6949D00260B30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79A72D2520C6949D00260B30 /* Assets.xcassets */; };
 		79A72D2920C6949D00260B30 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79A72D2720C6949D00260B30 /* Main.storyboard */; };
 		79A72D3520C6949D00260B30 /* BatIdentificationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A72D3420C6949D00260B30 /* BatIdentificationTests.swift */; };
 		79A72D4020C6949D00260B30 /* BatIdentificationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A72D3F20C6949D00260B30 /* BatIdentificationUITests.swift */; };
+		79A72D5020C6978C00260B30 /* animal-1296176_1280.png in Resources */ = {isa = PBXBuildFile; fileRef = 79A72D4F20C6978C00260B30 /* animal-1296176_1280.png */; };
+		79A72D5220C6AA9000260B30 /* OAuth2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79A72D5120C6AA9000260B30 /* OAuth2.framework */; };
+		79A72D5320C6AA9000260B30 /* OAuth2.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 79A72D5120C6AA9000260B30 /* OAuth2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		79A72D5720C6AABB00260B30 /* OAuth2.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 79A72D5620C6AABA00260B30 /* OAuth2.framework.dSYM */; };
+		79A72D5B20C6AD8B00260B30 /* BatIdentificationLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A72D5A20C6AD8B00260B30 /* BatIdentificationLoader.swift */; };
+		79A72D5E20C6B21D00260B30 /* Common.strings in Resources */ = {isa = PBXBuildFile; fileRef = 79A72D6020C6B21D00260B30 /* Common.strings */; };
+		79A72D6320C6B29D00260B30 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 79A72D6520C6B29D00260B30 /* Localizable.strings */; };
+		79C6539C20C7FB3C00F8DD8F /* OAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C6539B20C7FB3C00F8DD8F /* OAuthViewController.swift */; };
+		79C6539F20C8664200F8DD8F /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C6539D20C8664200F8DD8F /* TabViewController.swift */; };
+		79C653A420C86B6A00F8DD8F /* serrah-galos-494295-unsplash.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 79C653A320C86B6A00F8DD8F /* serrah-galos-494295-unsplash.jpg */; };
+		79C653A620CAC0D500F8DD8F /* BatCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C653A520CAC0D400F8DD8F /* BatCall.swift */; };
+		79C653A920CB0B5E00F8DD8F /* WarningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C653A720CB0B5E00F8DD8F /* WarningViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,7 +46,33 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		79A72D5420C6AA9000260B30 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				79A72D5320C6AA9000260B30 /* OAuth2.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		79A72D5520C6AAA500260B30 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				79A72D5720C6AABB00260B30 /* OAuth2.framework.dSYM in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		798D75FB20CD8BD80082274A /* Sox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sox.swift; sourceTree = "<group>"; };
+		798D760220CD90210082274A /* sox */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = sox; sourceTree = SOURCE_ROOT; };
 		79A72D1E20C6949900260B30 /* BatIdentification.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BatIdentification.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79A72D2120C6949900260B30 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79A72D2320C6949900260B30 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -46,6 +86,17 @@
 		79A72D3B20C6949D00260B30 /* BatIdentificationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BatIdentificationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		79A72D3F20C6949D00260B30 /* BatIdentificationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatIdentificationUITests.swift; sourceTree = "<group>"; };
 		79A72D4120C6949D00260B30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		79A72D4F20C6978C00260B30 /* animal-1296176_1280.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "animal-1296176_1280.png"; sourceTree = "<group>"; };
+		79A72D5120C6AA9000260B30 /* OAuth2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OAuth2.framework; path = Carthage/Build/Mac/OAuth2.framework; sourceTree = "<group>"; };
+		79A72D5620C6AABA00260B30 /* OAuth2.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = OAuth2.framework.dSYM; path = Carthage/Build/Mac/OAuth2.framework.dSYM; sourceTree = "<group>"; };
+		79A72D5A20C6AD8B00260B30 /* BatIdentificationLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatIdentificationLoader.swift; sourceTree = "<group>"; };
+		79A72D5F20C6B21D00260B30 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Common.strings; sourceTree = "<group>"; };
+		79A72D6420C6B29D00260B30 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		79C6539B20C7FB3C00F8DD8F /* OAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthViewController.swift; sourceTree = "<group>"; };
+		79C6539D20C8664200F8DD8F /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
+		79C653A320C86B6A00F8DD8F /* serrah-galos-494295-unsplash.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "serrah-galos-494295-unsplash.jpg"; sourceTree = "<group>"; };
+		79C653A520CAC0D400F8DD8F /* BatCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatCall.swift; sourceTree = "<group>"; };
+		79C653A720CB0B5E00F8DD8F /* WarningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79A72D5220C6AA9000260B30 /* OAuth2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,13 +125,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		79252F2320CD6E2B00A2E471 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		798D760120CD90190082274A /* Executables */ = {
+			isa = PBXGroup;
+			children = (
+				798D760220CD90210082274A /* sox */,
+			);
+			path = Executables;
+			sourceTree = "<group>";
+		};
 		79A72D1520C6949900260B30 = {
 			isa = PBXGroup;
 			children = (
+				79A72D5620C6AABA00260B30 /* OAuth2.framework.dSYM */,
+				79A72D5120C6AA9000260B30 /* OAuth2.framework */,
 				79A72D2020C6949900260B30 /* BatIdentification */,
 				79A72D3320C6949D00260B30 /* BatIdentificationTests */,
 				79A72D3E20C6949D00260B30 /* BatIdentificationUITests */,
 				79A72D1F20C6949900260B30 /* Products */,
+				79252F2320CD6E2B00A2E471 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,8 +166,16 @@
 		79A72D2020C6949900260B30 /* BatIdentification */ = {
 			isa = PBXGroup;
 			children = (
+				798D760120CD90190082274A /* Executables */,
+				79A72D4E20C6976E00260B30 /* Assets */,
 				79A72D2120C6949900260B30 /* AppDelegate.swift */,
 				79A72D2320C6949900260B30 /* ViewController.swift */,
+				79C653A720CB0B5E00F8DD8F /* WarningViewController.swift */,
+				79C6539D20C8664200F8DD8F /* TabViewController.swift */,
+				79A72D5A20C6AD8B00260B30 /* BatIdentificationLoader.swift */,
+				79C653A520CAC0D400F8DD8F /* BatCall.swift */,
+				79C6539B20C7FB3C00F8DD8F /* OAuthViewController.swift */,
+				798D75FB20CD8BD80082274A /* Sox.swift */,
 				79A72D2520C6949D00260B30 /* Assets.xcassets */,
 				79A72D2720C6949D00260B30 /* Main.storyboard */,
 				79A72D2A20C6949D00260B30 /* Info.plist */,
@@ -124,6 +202,17 @@
 			path = BatIdentificationUITests;
 			sourceTree = "<group>";
 		};
+		79A72D4E20C6976E00260B30 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				79A72D4F20C6978C00260B30 /* animal-1296176_1280.png */,
+				79C653A320C86B6A00F8DD8F /* serrah-galos-494295-unsplash.jpg */,
+				79A72D6020C6B21D00260B30 /* Common.strings */,
+				79A72D6520C6B29D00260B30 /* Localizable.strings */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -134,6 +223,8 @@
 				79A72D1A20C6949900260B30 /* Sources */,
 				79A72D1B20C6949900260B30 /* Frameworks */,
 				79A72D1C20C6949900260B30 /* Resources */,
+				79A72D5420C6AA9000260B30 /* Embed Frameworks */,
+				79A72D5520C6AAA500260B30 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -192,6 +283,11 @@
 				TargetAttributes = {
 					79A72D1D20C6949900260B30 = {
 						CreatedOnToolsVersion = 9.3.1;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 					79A72D2F20C6949D00260B30 = {
 						CreatedOnToolsVersion = 9.3.1;
@@ -228,8 +324,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79A72D6320C6B29D00260B30 /* Localizable.strings in Resources */,
 				79A72D2620C6949D00260B30 /* Assets.xcassets in Resources */,
+				79C653A420C86B6A00F8DD8F /* serrah-galos-494295-unsplash.jpg in Resources */,
+				798D760320CD90210082274A /* sox in Resources */,
 				79A72D2920C6949D00260B30 /* Main.storyboard in Resources */,
+				79A72D5020C6978C00260B30 /* animal-1296176_1280.png in Resources */,
+				79A72D5E20C6B21D00260B30 /* Common.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,8 +355,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79C653A920CB0B5E00F8DD8F /* WarningViewController.swift in Sources */,
+				79C6539C20C7FB3C00F8DD8F /* OAuthViewController.swift in Sources */,
 				79A72D2420C6949900260B30 /* ViewController.swift in Sources */,
+				79A72D5B20C6AD8B00260B30 /* BatIdentificationLoader.swift in Sources */,
+				79C6539F20C8664200F8DD8F /* TabViewController.swift in Sources */,
 				79A72D2220C6949900260B30 /* AppDelegate.swift in Sources */,
+				798D75FC20CD8BD80082274A /* Sox.swift in Sources */,
+				79C653A620CAC0D500F8DD8F /* BatCall.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,6 +404,22 @@
 				79A72D2820C6949D00260B30 /* Base */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		79A72D6020C6B21D00260B30 /* Common.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				79A72D5F20C6B21D00260B30 /* en */,
+			);
+			name = Common.strings;
+			sourceTree = "<group>";
+		};
+		79A72D6520C6B29D00260B30 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				79A72D6420C6B29D00260B30 /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -423,11 +546,17 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 2H9RGX4L6H;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = BatIdentification/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				OTHER_LDFLAGS = "-lstdc++";
 				PRODUCT_BUNDLE_IDENTIFIER = com.batidentification.BatIdentification;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -442,11 +571,17 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 2H9RGX4L6H;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = BatIdentification/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				OTHER_LDFLAGS = "-lstdc++";
 				PRODUCT_BUNDLE_IDENTIFIER = com.batidentification.BatIdentification;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
