@@ -26,51 +26,80 @@ class ViewController: NSViewController {
     
     @IBAction func toggleStatus(_ sender: Any) {
         
-        downloadCall()
+        analyzeCall()
         
     }
     
-    func downloadCall(){
-        
-        generateSpectrogram()
-        
-//        let loader = BatIdentificationLoader.shared
-//
-//        loader.getCallInformation() { call in
-//
-//            guard let call = call else{
-//
-//                let identifier = NSStoryboard.SceneIdentifier(rawValue: "Warning")
-//                let viewController = self.storyboard?.instantiateController(withIdentifier: identifier)
-//                self.presentViewControllerAsModalWindow(viewController as! ViewController)
-//
-//                return
-//
-//            }
-//
-//            print(call.downloadCall())
-//
-//        }
+    func analyzeCall(){
+
+        loader.getCallInformation() { result in
+
+            var callResponse: BatCall?
+            
+            do{
+                
+                callResponse = try result()
+                
+            }catch let error{
+                
+                print(error);
+                
+            }
+            
+            guard let call = callResponse else{
+
+                self.showWarning()
+                return
+
+            }
+
+            print("Got call data")
+            
+            //Download the call
+            
+            if(call.downloadCall()){
+                
+                //Change status
+                print("Downloaded call")
+                
+                //Get the correct path to the downloaded file
+                let manager = FileManager.default
+                let path = manager.currentDirectoryPath + "/bat_call.wav"
+                
+                //Run SOX to create a spectrogram and time expansion
+                let SoxController = Sox()
+                let spectrogramResult = SoxController.createSpectrogram(audio: path)
+                let timeExpansionResult = SoxController.createTimeExpansion(audio: path)
+                
+                if(!spectrogramResult || !timeExpansionResult){
+                    self.showWarning()
+                }else{
+                
+                    print("Made files")
+                    let specPath = manager.currentDirectoryPath + "/spec.png"
+                    let timeExpansionPath = manager.currentDirectoryPath + "/time_expansion.wav"
+                    
+                    self.loader.uploadFiles(spec: specPath, time_expansion: timeExpansionPath, analysing_id: call.identifer)
+                    
+                }
+                
+            }else{
+                
+                self.showWarning()
+                
+            }
+            
+        }
         
     }
     
-    func generateSpectrogram(){
+    private func showWarning(){
         
-        let manager = FileManager.default
-        let path = manager.currentDirectoryPath + "/bat_call.wav"
-        
-//        let SoxController = Sox()
-//        SoxController.createSpectrogram(audio: path)
-//        SoxController.createTimeExpansion(audio: path)
-        
-        let specPath = manager.currentDirectoryPath + "/spec.png"
-        let timeExpansionPath = manager.currentDirectoryPath + "/time_expansion.wav"
-        
-        loader.uploadFiles(spec: specPath, time_expansion: timeExpansionPath, analysing_id: "5b1ab763bcef08.34343819")
+        let identifier = NSStoryboard.SceneIdentifier(rawValue: "Warning")
+        let viewController = self.storyboard?.instantiateController(withIdentifier: identifier)
+        self.presentViewControllerAsModalWindow(viewController as! NSViewController)
         
     }
-    
-    
     
 }
 

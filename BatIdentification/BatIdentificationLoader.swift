@@ -18,6 +18,12 @@ extension Data {
     }
 }
 
+enum RequestErrors: Error{
+    
+    case RuntimeError(String)
+    
+}
+
 //Handles authorization and requests with the BatIdentification service
 
 class BatIdentificationLoader: OAuth2DataLoader {
@@ -27,8 +33,6 @@ class BatIdentificationLoader: OAuth2DataLoader {
     let baseURL = URL(string: NSLocalizedString("api.url", tableName: "Common", comment: ""))!
     
     private init(){
-        
-        print(baseURL.absoluteString + "authorize.php");
         
         let oauth = OAuth2CodeGrant(settings: [
             "client_id": "8KCVSRHGKPRS5R9Y6OYP41MDIB1KM1O9",
@@ -45,9 +49,21 @@ class BatIdentificationLoader: OAuth2DataLoader {
     
     public func getToken(completionHandler: @escaping (_ status: Bool) -> ()){
     
-        makeRequest(appendingPath: "verifyToken.php") { dict in
+        makeRequest(appendingPath: "verifyToken.php") { result in
             
-            guard let dict = dict else{
+            var dictResponse: OAuth2JSON?
+            
+            do{
+                
+                dictResponse = try result()
+                
+            }catch _{
+                
+                completionHandler(false)
+                
+            }
+            
+            guard let dict = dictResponse else{
                 completionHandler(false)
                 return
             }
@@ -62,19 +78,31 @@ class BatIdentificationLoader: OAuth2DataLoader {
         
     }
     
-    public func getCallInformation(completionHandler: @escaping (_ call: BatCall?) -> ()){
+    public func getCallInformation(completionHandler: @escaping (() throws -> (BatCall?)) -> ()){
         
-        makeRequest(appendingPath: "call.php") { dict in
+        makeRequest(appendingPath: "call.php") { result in
             
-            guard let dict = dict else{
-                completionHandler(nil)
+            var dictResponse: OAuth2JSON?
+            
+            do{
+                
+                dictResponse = try result()
+                
+            }catch _{
+                
+                completionHandler({throw RequestErrors.RuntimeError("Something went wrong while trying to retrieve the information of a call")})
+                
+            }
+            
+            guard let dict = dictResponse else{
+                completionHandler({throw RequestErrors.RuntimeError("Hum......this one's on us, our servers appear to have made a mistake")})
                 return
             }
             
             //Check to see if error is present in the dict
             
             if dict["error"] != nil{
-                print(dict["error_description"])
+                completionHandler({throw RequestErrors.RuntimeError(dict["error_description"] as! String)})
                 return
             }
             
@@ -83,13 +111,13 @@ class BatIdentificationLoader: OAuth2DataLoader {
             let unwrappedCallURL = NSURL(string: dict["call_url"] as! String)
             
             guard let callURL = unwrappedCallURL else{
-                completionHandler(nil)
+                completionHandler({throw RequestErrors.RuntimeError("Hum......this one's on us, our servers appear to have made a mistake")})
                 return
             }
             
             let call = BatCall(url: callURL, identifer: dict["identifier"] as! String)
             
-            completionHandler(call)
+            completionHandler({return call})
             
         }
         
@@ -98,7 +126,7 @@ class BatIdentificationLoader: OAuth2DataLoader {
     public func uploadFiles(spec: String, time_expansion: String, analysing_id: String){
         
         let parameters = ["analysing_id": analysing_id]
-        let files = ["spectrogram": spec]
+        let files = ["spectrogram": spec, "time_expansion": time_expansion]
         let boundary = "Boundary-\(UUID().uuidString)"
         
         var req = oauth2.request(forURL: baseURL.appendingPathComponent("analyzed.php"))
@@ -109,6 +137,7 @@ class BatIdentificationLoader: OAuth2DataLoader {
             
             let body = try createBody(with: parameters, files: files, boundary: boundary)
             req.httpBody = body
+            print("All ok")
             
         }catch let error{
             
@@ -143,7 +172,9 @@ class BatIdentificationLoader: OAuth2DataLoader {
         
     }
     
-    func makeRequest(appendingPath: String, completionHandler: @escaping (_ dict: OAuth2JSON?) -> ()){
+    // For the callback we specifiy "() throws -> (OAuth2JSON?)" as the argument. This means that when the callback is implemented the returned value will be a function that can either throw or return a OAuth2JSON object. We just need to run it to see.
+    
+    func makeRequest(appendingPath: String, completionHandler: @escaping (() throws -> (OAuth2JSON?)) -> ()){
         
         let req = oauth2.request(forURL: baseURL.appendingPathComponent(appendingPath))
         
@@ -152,11 +183,11 @@ class BatIdentificationLoader: OAuth2DataLoader {
             do{
                 let dict = try response.responseJSON()
                 DispatchQueue.main.async {
-                    completionHandler(dict)
+                    completionHandler({return dict})
                 }
             }catch _{
                 DispatchQueue.main.async{
-                    completionHandler(nil)
+                    completionHandler({throw RequestErrors.RuntimeError("Could not make request to webserver")})
                 }
             }
         }

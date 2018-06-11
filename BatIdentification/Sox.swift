@@ -19,29 +19,31 @@ class Sox{
         
     }
     
-    public func createSpectrogram(audio: String){
+    public func createSpectrogram(audio: String) -> Bool{
     
         let arguments = [audio, "-n", "remix", "1", "rate", "192k", "spectrogram", "-o", "spec.png"]
         
         let result = runProcess(arguments: arguments)
         
         if(result != ""){
-            
-            print(result)
-            
+           return false
         }
+        
+        return true
     
     }
     
-    public func createTimeExpansion(audio: String){
+    public func createTimeExpansion(audio: String) -> Bool{
         
         let arguments = ["-t", "wav", "-e", "signed-integer", "-b16", "-r", "192000", "-c", "2", audio, "-t", "wav", "-e", "signed-integer", "-b16", "-r", "192000", "-c", "2", "time_expansion.wav", "sinc", "10k", "speed", "0.1"]
         
         let result = runProcess(arguments: arguments)
         
         if(result != ""){
-            print(result)
+            return false
         }
+        
+        return true
         
     }
     
