@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		798D75FC20CD8BD80082274A /* Sox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798D75FB20CD8BD80082274A /* Sox.swift */; };
 		798D760320CD90210082274A /* sox in Resources */ = {isa = PBXBuildFile; fileRef = 798D760220CD90210082274A /* sox */; };
+		799018B420CFC94F00C2618E /* Warnings.strings in Resources */ = {isa = PBXBuildFile; fileRef = 799018B620CFC94F00C2618E /* Warnings.strings */; };
 		79A72D2220C6949900260B30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A72D2120C6949900260B30 /* AppDelegate.swift */; };
 		79A72D2420C6949900260B30 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A72D2320C6949900260B30 /* ViewController.swift */; };
 		79A72D2620C6949D00260B30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79A72D2520C6949D00260B30 /* Assets.xcassets */; };
@@ -73,6 +74,7 @@
 /* Begin PBXFileReference section */
 		798D75FB20CD8BD80082274A /* Sox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sox.swift; sourceTree = "<group>"; };
 		798D760220CD90210082274A /* sox */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = sox; sourceTree = SOURCE_ROOT; };
+		799018B520CFC94F00C2618E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Warnings.strings; sourceTree = "<group>"; };
 		79A72D1E20C6949900260B30 /* BatIdentification.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BatIdentification.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79A72D2120C6949900260B30 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79A72D2320C6949900260B30 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 				79A72D4F20C6978C00260B30 /* animal-1296176_1280.png */,
 				79C653A320C86B6A00F8DD8F /* serrah-galos-494295-unsplash.jpg */,
 				79A72D6020C6B21D00260B30 /* Common.strings */,
+				799018B620CFC94F00C2618E /* Warnings.strings */,
 				79A72D6520C6B29D00260B30 /* Localizable.strings */,
 			);
 			path = Assets;
@@ -325,6 +328,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				79A72D6320C6B29D00260B30 /* Localizable.strings in Resources */,
+				799018B420CFC94F00C2618E /* Warnings.strings in Resources */,
 				79A72D2620C6949D00260B30 /* Assets.xcassets in Resources */,
 				79C653A420C86B6A00F8DD8F /* serrah-galos-494295-unsplash.jpg in Resources */,
 				798D760320CD90210082274A /* sox in Resources */,
@@ -398,6 +402,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		799018B620CFC94F00C2618E /* Warnings.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				799018B520CFC94F00C2618E /* en */,
+			);
+			name = Warnings.strings;
+			sourceTree = "<group>";
+		};
 		79A72D2720C6949D00260B30 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

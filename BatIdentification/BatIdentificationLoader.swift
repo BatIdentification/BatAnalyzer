@@ -21,6 +21,9 @@ extension Data {
 enum RequestErrors: Error{
     
     case RuntimeError(String)
+    case ConnectionError
+    case ResponseError
+    
     
 }
 
@@ -88,14 +91,14 @@ class BatIdentificationLoader: OAuth2DataLoader {
                 
                 dictResponse = try result()
                 
-            }catch _{
+            }catch let error{
                 
-                completionHandler({throw RequestErrors.RuntimeError("Something went wrong while trying to retrieve the information of a call")})
+                completionHandler({throw error})
                 
             }
             
             guard let dict = dictResponse else{
-                completionHandler({throw RequestErrors.RuntimeError("Hum......this one's on us, our servers appear to have made a mistake")})
+                completionHandler({throw RequestErrors.ResponseError})
                 return
             }
             
@@ -111,7 +114,7 @@ class BatIdentificationLoader: OAuth2DataLoader {
             let unwrappedCallURL = NSURL(string: dict["call_url"] as! String)
             
             guard let callURL = unwrappedCallURL else{
-                completionHandler({throw RequestErrors.RuntimeError("Hum......this one's on us, our servers appear to have made a mistake")})
+                completionHandler({throw RequestErrors.ResponseError})
                 return
             }
             
@@ -187,7 +190,7 @@ class BatIdentificationLoader: OAuth2DataLoader {
                 }
             }catch _{
                 DispatchQueue.main.async{
-                    completionHandler({throw RequestErrors.RuntimeError("Could not make request to webserver")})
+                    completionHandler({throw RequestErrors.ConnectionError})
                 }
             }
         }

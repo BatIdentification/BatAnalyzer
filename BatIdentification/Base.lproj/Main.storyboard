@@ -730,7 +730,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" placeholderString="Status: " id="gsi-av-AQ4">
                                     <font key="font" metaFont="system" size="20"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
@@ -747,6 +747,9 @@
                             </button>
                         </subviews>
                     </view>
+                    <connections>
+                        <outlet property="statusLabel" destination="Lx7-Ia-rNo" id="wZt-Ro-DMH"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -768,7 +771,7 @@
                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Vz-ny-ydW">
                                 <rect key="frame" x="142" y="70" width="290" height="110"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Something appears to have gone wrong, sorry about that! Please try again or restart the application" id="QVJ-az-CW8">
+                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="QVJ-az-CW8">
                                     <font key="font" metaFont="systemBold" size="19"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -781,6 +784,9 @@
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="restartProgram:" target="tDL-Tg-O7i" id="rWS-EV-HYU"/>
+                                </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WGh-Vv-1jx">
                                 <rect key="frame" x="14" y="22" width="92" height="32"/>
@@ -792,9 +798,15 @@
 DQ
 </string>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="dismissWarning:" target="tDL-Tg-O7i" id="5Ny-vY-Iyj"/>
+                                </connections>
                             </button>
                         </subviews>
                     </view>
+                    <connections>
+                        <outlet property="warningLabel" destination="2Vz-ny-ydW" id="C41-fJ-QUi"/>
+                    </connections>
                 </viewController>
                 <customObject id="o9h-LQ-4CE" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

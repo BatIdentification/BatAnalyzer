@@ -10,9 +10,28 @@ import Cocoa
 
 class WarningViewController: NSViewController {
 
+    @IBOutlet weak var warningLabel: NSTextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do view setup here.
+        // Do view setup here
+        
+    }
+    @IBAction func dismissWarning(_ sender: Any) {
+        
+        self.dismiss(self)
+        
     }
     
+    @IBAction func restartProgram(_ sender: Any) {
+        
+        let url = URL(fileURLWithPath: Bundle.main.resourcePath!)
+        let path = url.deletingLastPathComponent().deletingLastPathComponent().absoluteString
+        let task = Process()
+        task.launchPath = "/usr/bin/open"
+        task.arguments = [path]
+        task.launch()
+        exit(0)
+        
+    }
 }

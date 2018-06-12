@@ -1,0 +1,13 @@
+/* 
+  warnings.strings
+  BatIdentification
+
+  Created by Richard Beattie on 6/12/18.
+  Copyright © 2018 Richard Beattie. All rights reserved.
+*/
+
+"call.information" = "Sorry, something went wrong while getting a bat call from our database";
+"call.analyze" = "Sorry, something went wrong while creating the spectrogram and time expansion call";
+"call.download" = "Sorry, something went wrong while downloading the call";
+"loader.connection" = "Sorry, something went wrong while connecting to our servers";
+"loader.response" = "This one's on us, our servers returned us nonsense";
