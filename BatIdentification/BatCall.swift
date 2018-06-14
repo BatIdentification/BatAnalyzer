@@ -22,7 +22,7 @@ class BatCall{
     
     func downloadCall() -> Bool{
         
-        let appendedURL = url.appendingPathComponent("/original.wav")
+        let appendedURL = url.appendingPathComponent("original.wav")
         
         guard let absoluteUrl = appendedURL?.absoluteURL else{
             return false

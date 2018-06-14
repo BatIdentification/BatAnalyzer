@@ -13,7 +13,6 @@ class TabViewController: NSTabViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
-        
         if(isFirstLaunch()){
             
             self.selectedTabViewItemIndex = 1

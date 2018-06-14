@@ -24,7 +24,6 @@ enum RequestErrors: Error{
     case ConnectionError
     case ResponseError
     
-    
 }
 
 //Handles authorization and requests with the BatIdentification service

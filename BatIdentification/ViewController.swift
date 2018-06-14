@@ -11,11 +11,11 @@ import Cocoa
 class ViewController: NSViewController {
     
     let loader = BatIdentificationLoader.shared
-    
+    var running = false
+   
     @IBOutlet weak var statusLabel: NSTextField!
     
-    var running = false
-    
+    @IBOutlet weak var toggleButton: NSButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,26 +27,24 @@ class ViewController: NSViewController {
         }
     }
     
-    
     @IBAction func toggleStatus(_ sender: Any) {
-        
         if(running){
-            
             // Stop the program from running
             running = false
+            self.updateStatus(status: "Stopping......", override: true)
+            toggleButton.title = "Start"
             
         }else{
-                
-            analyzeCall()
+            running = true
+            self.updateStatus(status: "Getting information from BatIdentification")
+            toggleButton.title = "Stop"
+            self.analyzeCall()
+            
             
         }
-       
-        
     }
     
     func analyzeCall(){
-
-        statusLabel.stringValue = "Status: Getting information from BatIdentification"
         
         loader.getCallInformation() { result in
 
@@ -85,20 +83,20 @@ class ViewController: NSViewController {
 
             }
 
-            self.statusLabel.stringValue = "Status: Downloading a bat call"
+           self.updateStatus(status: " Downloading a bat call")
             
             //Download the call
             
             if(call.downloadCall()){
                 
                 //Change status
-                self.statusLabel.stringValue = "Status: Generating anaylzation files for bat call"
+                self.updateStatus(status: "Generating anaylzation files for bat call")
                 
                 //Get the correct path to the downloaded file
                 
                 if(self.createFiles()){
                 
-                    self.statusLabel.stringValue = "Status: Uploading files to BatIdentification"
+                    self.updateStatus(status: "Uploading files to BatIdentification")
                     
                     let manager = FileManager.default
                     let specPath = manager.currentDirectoryPath + "/spec.png"
@@ -106,22 +104,27 @@ class ViewController: NSViewController {
                     
                     self.loader.uploadFiles(spec: specPath, time_expansion: timeExpansionPath, analysing_id: call.identifer)
                     
-                    self.statusLabel.stringValue = "Status: Finished analyzing a bat call"
+                    self.updateStatus(status: "Finished analyzing a bat call")
                     
                     var count = 5
                     
                     var timer: Timer?
                     timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: {_ in
                         
-                        self.statusLabel.stringValue = "Status: Resuming in \(String(count))"
-                        count -= 1
-                        
                         if(count == 0){
                             
                             timer?.invalidate()
-                            analyzeCall()
+                            if(self.running){
+                                    self.analyzeCall()
+                            }else{
+                                self.updateStatus(status: "Stopped", override: true)
+                            }
                             
                         }
+                        
+                        self.updateStatus(status: "Resuming in \(String(count))")
+                        count -= 1
+                    
                         
                     })
                     
@@ -158,14 +161,26 @@ class ViewController: NSViewController {
     
     private func showWarning(warning: String){
         
-        self.statusLabel.stringValue = "Status: Stopped due to an error"
+        self.updateStatus(status: "Stopped due to an error")
         running = false
+        toggleButton.title = "Start"
         
         let identifier = NSStoryboard.SceneIdentifier(rawValue: "Warning")
         let viewController = self.storyboard?.instantiateController(withIdentifier: identifier) as! WarningViewController
         self.presentViewControllerAsModalWindow(viewController as NSViewController)
         viewController.warningLabel.stringValue = warning
         
+    }
+    
+    //Is used so that when the user cancels the application the status label no longer changes
+    private func updateStatus(status: String, override: Bool = false){
+    
+        if(running || override){
+    
+            statusLabel.stringValue = "Status: \(status)"
+    
+        }
+    
     }
     
 }

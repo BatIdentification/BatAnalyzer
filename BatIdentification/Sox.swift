@@ -21,7 +21,7 @@ class Sox{
     
     public func createSpectrogram(audio: String) -> Bool{
     
-        let arguments = [audio, "-n", "remix", "1", "rate", "192k", "spectrogram", "-o", "spec.png"]
+        let arguments = [audio, "-n", "remix", "1", "rate", "192k", "spectrogram", "-r", "-o", "spec.png"]
         
         let result = runProcess(arguments: arguments)
         

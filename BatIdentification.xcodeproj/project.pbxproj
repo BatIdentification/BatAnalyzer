@@ -16,7 +16,6 @@
 		79A72D2920C6949D00260B30 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79A72D2720C6949D00260B30 /* Main.storyboard */; };
 		79A72D3520C6949D00260B30 /* BatIdentificationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A72D3420C6949D00260B30 /* BatIdentificationTests.swift */; };
 		79A72D4020C6949D00260B30 /* BatIdentificationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A72D3F20C6949D00260B30 /* BatIdentificationUITests.swift */; };
-		79A72D5020C6978C00260B30 /* animal-1296176_1280.png in Resources */ = {isa = PBXBuildFile; fileRef = 79A72D4F20C6978C00260B30 /* animal-1296176_1280.png */; };
 		79A72D5220C6AA9000260B30 /* OAuth2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79A72D5120C6AA9000260B30 /* OAuth2.framework */; };
 		79A72D5320C6AA9000260B30 /* OAuth2.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 79A72D5120C6AA9000260B30 /* OAuth2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		79A72D5720C6AABB00260B30 /* OAuth2.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 79A72D5620C6AABA00260B30 /* OAuth2.framework.dSYM */; };
@@ -88,7 +87,6 @@
 		79A72D3B20C6949D00260B30 /* BatIdentificationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BatIdentificationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		79A72D3F20C6949D00260B30 /* BatIdentificationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatIdentificationUITests.swift; sourceTree = "<group>"; };
 		79A72D4120C6949D00260B30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		79A72D4F20C6978C00260B30 /* animal-1296176_1280.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "animal-1296176_1280.png"; sourceTree = "<group>"; };
 		79A72D5120C6AA9000260B30 /* OAuth2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OAuth2.framework; path = Carthage/Build/Mac/OAuth2.framework; sourceTree = "<group>"; };
 		79A72D5620C6AABA00260B30 /* OAuth2.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = OAuth2.framework.dSYM; path = Carthage/Build/Mac/OAuth2.framework.dSYM; sourceTree = "<group>"; };
 		79A72D5A20C6AD8B00260B30 /* BatIdentificationLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatIdentificationLoader.swift; sourceTree = "<group>"; };
@@ -207,7 +205,6 @@
 		79A72D4E20C6976E00260B30 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				79A72D4F20C6978C00260B30 /* animal-1296176_1280.png */,
 				79C653A320C86B6A00F8DD8F /* serrah-galos-494295-unsplash.jpg */,
 				79A72D6020C6B21D00260B30 /* Common.strings */,
 				799018B620CFC94F00C2618E /* Warnings.strings */,
@@ -333,7 +330,6 @@
 				79C653A420C86B6A00F8DD8F /* serrah-galos-494295-unsplash.jpg in Resources */,
 				798D760320CD90210082274A /* sox in Resources */,
 				79A72D2920C6949D00260B30 /* Main.storyboard in Resources */,
-				79A72D5020C6978C00260B30 /* animal-1296176_1280.png in Resources */,
 				79A72D5E20C6B21D00260B30 /* Common.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
