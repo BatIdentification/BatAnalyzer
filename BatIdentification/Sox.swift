@@ -35,7 +35,7 @@ class Sox{
     
     public func createTimeExpansion(audio: String) -> Bool{
         
-        let arguments = ["-t", "wav", "-e", "signed-integer", "-b16", "-r", "192000", "-c", "2", audio, "-t", "wav", "-e", "signed-integer", "-b16", "-r", "192000", "-c", "2", "time_expansion.wav", "sinc", "10k", "speed", "0.1"]
+        let arguments = ["-t", "wav", "-e", "signed-integer", "-b16", "-r", "192000", "-c", "2", audio, "-t", "wav", "-e", "signed-integer", "-b16", "-r", "192000", "-c", "2", "time_expansion.wav", "sinc", "10k", "speed", "0.1", "gain", "-n", "0.5"]
         
         let result = runProcess(arguments: arguments)
         

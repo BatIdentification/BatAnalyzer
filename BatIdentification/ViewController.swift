@@ -90,7 +90,7 @@ class ViewController: NSViewController {
             if(call.downloadCall()){
                 
                 //Change status
-                self.updateStatus(status: "Generating anaylzation files for bat call")
+                self.updateStatus(status: "Generating analyzation files for bat call")
                 
                 //Get the correct path to the downloaded file
                 
