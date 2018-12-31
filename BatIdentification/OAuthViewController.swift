@@ -12,6 +12,7 @@ let OAuth2AppDidReceiveCallbackNotification = NSNotification.Name(rawValue: "OAu
 
 class OAuthViewController: NSViewController {
 
+    
     @IBOutlet weak var warningLabel: NSTextField!
     var tabViewController: TabViewController!
     let loader = BatIdentificationLoader.shared
@@ -20,7 +21,8 @@ class OAuthViewController: NSViewController {
         super.viewDidLoad()
         // Do view setup here.
         
-        tabViewController = self.parent as! TabViewController
+        tabViewController = self.parent as? TabViewController
+        
     }
     
     @IBAction func connect(_ sender: Any) {
@@ -29,18 +31,16 @@ class OAuthViewController: NSViewController {
         
         NotificationCenter.default.removeObserver(self, name: OAuth2AppDidReceiveCallbackNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(OAuthViewController.handleRedirect(_:)), name: OAuth2AppDidReceiveCallbackNotification, object: nil)
-        
-        loader.getToken {
+
+        loader.authorize(){ status in
             
-            status in
-            
-            if(status){
+            if(status == true){
                 
-               self.tabViewController.selectedTabViewItemIndex = 0
+                self.tabViewController.selectedTabViewItemIndex = 0
                 
             }else{
                 
-                 self.warningLabel.stringValue = "Sorry something went wrong there, please try again"
+                self.warningLabel.stringValue = NSLocalizedString("loader.general", tableName: "Warnings", comment: "")
                 
             }
             

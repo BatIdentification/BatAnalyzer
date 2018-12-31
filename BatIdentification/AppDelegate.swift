@@ -34,6 +34,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         return true
     }
     
+    //Handles opening the app from the authorization webpage when we are requesting authorization
+    
     @objc func handleURLEvent(event: NSAppleEventDescriptor, reply: NSAppleEventDescriptor) {
         
         guard let appleEventDescription = event.paramDescriptor(forKeyword: AEKeyword(keyDirectObject)) else {

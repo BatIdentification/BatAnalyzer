@@ -39,41 +39,28 @@ class BatIdentificationLoader: OAuth2DataLoader {
         let oauth = OAuth2CodeGrant(settings: [
             "client_id": "8KCVSRHGKPRS5R9Y6OYP41MDIB1KM1O9",
             "client_secret": "813a546fd59a4220936d20f14543a38a8adc84fa6abd19d8ea0106569604a4d7459bc47b0e25775f",
-            "authorize_uri": baseURL.absoluteString + "authorize.php",
-            "token_uri": baseURL.absoluteString + "token.php",
+            "authorize_uri": baseURL.absoluteString + "authorize",
+            "token_uri": baseURL.absoluteString + "token",
             "redirect_uris": ["batidentification://oauth/callback"],
             "verbose": true,
-        ])
+        ] as OAuth2JSON)
         
         super.init(oauth2: oauth)
         
     }
     
-    public func getToken(completionHandler: @escaping (_ status: Bool) -> ()){
-    
-        makeRequest(appendingPath: "verifyToken.php") { result in
+    public func authorize(completionHandler: @escaping (_ status: Bool) -> ()){
+        
+        oauth2.authorize() {authParameters, error in
             
-            var dictResponse: OAuth2JSON?
-            
-            do{
+            if let params = authParameters {
                 
-                dictResponse = try result()
-                
-            }catch _{
-                
-                completionHandler(false)
-                
-            }
-            
-            guard let dict = dictResponse else{
-                completionHandler(false)
-                return
-            }
-            
-            if (dict["success"] as? Bool) != nil{
                 completionHandler(true)
-            }else{
-                completionHandler(false)
+                
+            }else {
+               
+               completionHandler(false)
+                
             }
             
         }
@@ -82,7 +69,7 @@ class BatIdentificationLoader: OAuth2DataLoader {
     
     public func getCallInformation(completionHandler: @escaping (() throws -> (BatCall?)) -> ()){
         
-        makeRequest(appendingPath: "call.php") { result in
+        makeRequest(appendingPath: "requestCall") { result in
             
             var dictResponse: OAuth2JSON?
             
@@ -93,6 +80,7 @@ class BatIdentificationLoader: OAuth2DataLoader {
             }catch let error{
                 
                 completionHandler({throw error})
+                return
                 
             }
             
@@ -184,6 +172,7 @@ class BatIdentificationLoader: OAuth2DataLoader {
         loader.perform(request: req) { response in
             do{
                 let dict = try response.responseJSON()
+                
                 DispatchQueue.main.async {
                     completionHandler({return dict})
                 }

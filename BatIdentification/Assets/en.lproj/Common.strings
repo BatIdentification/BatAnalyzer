@@ -6,4 +6,5 @@
   Copyright © 2018 Richard Beattie. All rights reserved.
 */
 
-"api.url" = "https://api.batidentification.com/";
+"api.url" = "https://api.batidentification.loc/api/";
+"endpoint.token" = "verifyToken";

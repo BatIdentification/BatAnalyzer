@@ -11,3 +11,4 @@
 "call.download" = "Sorry, something went wrong while downloading the call";
 "loader.connection" = "Sorry, something went wrong while connecting to our servers";
 "loader.response" = "This one's on us, our servers returned us nonsense";
+"loader.general" = "Sorry, something went wrong there. Please try again later";

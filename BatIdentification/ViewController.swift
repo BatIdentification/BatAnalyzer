@@ -39,8 +39,6 @@ class ViewController: NSViewController {
             self.updateStatus(status: "Getting information from BatIdentification")
             toggleButton.title = "Stop"
             self.analyzeCall()
-            
-            
         }
     }
     

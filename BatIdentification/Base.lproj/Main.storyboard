@@ -378,19 +378,19 @@ DQ
                                     <action selector="connect:" target="M7d-mJ-mle" id="mcM-b6-IXe"/>
                                 </connections>
                             </button>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b6I-xp-FPU">
-                                <rect key="frame" x="236" y="370" width="353" height="23"/>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NPe-6X-WlA">
+                                <rect key="frame" x="236" y="369" width="353" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" id="Od9-Dc-gMi">
-                                    <font key="font" metaFont="system" size="19"/>
-                                    <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" id="OP8-9b-2fj">
+                                    <font key="font" metaFont="system" size="18"/>
+                                    <color key="textColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                         </subviews>
                     </view>
                     <connections>
-                        <outlet property="warningLabel" destination="b6I-xp-FPU" id="Obp-rP-SUe"/>
+                        <outlet property="warningLabel" destination="NPe-6X-WlA" id="BAk-Bv-eNP"/>
                     </connections>
                 </viewController>
                 <customObject id="YSa-Ee-QQz" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
