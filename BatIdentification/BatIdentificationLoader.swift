@@ -119,7 +119,7 @@ class BatIdentificationLoader: OAuth2DataLoader {
         let files = ["spectrogram": spec, "time_expansion": time_expansion]
         let boundary = "Boundary-\(UUID().uuidString)"
         
-        var req = oauth2.request(forURL: baseURL.appendingPathComponent("analyzed.php"))
+        var req = oauth2.request(forURL: baseURL.appendingPathComponent("analyzed"))
         req.httpMethod = "POST"
         req.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
         
