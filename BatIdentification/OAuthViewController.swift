@@ -36,6 +36,7 @@ class OAuthViewController: NSViewController {
             
             if(status == true){
                 
+                UserDefaults.standard.set(true, forKey: "launchedBefore")
                 self.tabViewController.selectedTabViewItemIndex = 0
                 
             }else{
