@@ -27,7 +27,6 @@ class TabViewController: NSTabViewController {
         if(launchedBefore){
             return false
         }else{
-            UserDefaults.standard.set(true, forKey: "launchedBefore")
             return true
         }
         
